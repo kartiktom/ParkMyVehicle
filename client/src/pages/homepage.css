@@ -1,0 +1,98 @@
+.LandingBanner{
+    height: 90.7vh;
+    width: 100%;
+    background-image: url('..//assets/images/parkingLot.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.searchForm{
+    height: 100%;
+    padding-top: 16%;
+    background: rgb(147, 146, 141); /* Fallback color */
+  background: rgb(147, 146, 141,0.5); /* Black background with 0.5 opacity */
+}
+
+.rowReactBoot{
+    margin-left: 0;
+    margin-right: 0;
+}
+.headingStep1{
+    font-size: 3rem;
+    margin: auto;
+    margin-top: 3rem;
+}
+
+.CityImg1{
+    height: 20rem;
+    background-image: url('../assets/images/City1Img.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.CityImg2{
+    height: 20rem;
+    background-image: url('../assets/images/City2Img.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.CityImg3{
+    height: 20rem;
+    background-image: url('../assets/images/City3Img.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.CityImg4{
+    height: 20rem;
+    background-image: url('../assets/images/City4Img.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.CityImg5{
+    height: 20rem;
+    background-image: url('../assets/images/delhiImg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.CityImg6{
+    height: 20rem;
+    background-image: url('../assets/images/mumbaiImg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.CityImg7{
+    height: 20rem;
+    background-image: url('../assets/images/kolkataImg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.CityImg8{
+    height: 20rem;
+    background-image: url('../assets/images/chennaiImg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.ImgDiv{
+    padding: 1rem;
+}
+
+.textCityImg{
+    padding-top: 48%;
+    height: 100%;
+    color: white;
+    font-size: 2rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.ImgDiv:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
