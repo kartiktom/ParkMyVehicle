@@ -6,7 +6,7 @@ var logger = require('morgan');
 var cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
-import fs from 'fs'
+var fs = require('fs');
 var app = express();
 const PORT = process.env.PORT || 9000;
 // view engine setup
@@ -23,10 +23,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 //DATABASE CONNECTION
 
 mongoose.connect(
+  process.env.MONGODB_URL||
   'mongodb+srv://kartik:kartik@cluster0.ei41c.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { useNewUrlParser: true, useCreateIndex: true,useUnifiedTopology:true});
 
-fs.readdirSync('./routes').map((r)=>app.use('/',require(`./routes/${r}`)))
+fs.readdirSync('./routes').map((r) => app.use('/', require(`./routes/${r}`)))
 
+if (process.env.NODE_ENV == 'production')
+{
+  app.use(express.static('./client/build'));
+}
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -43,8 +48,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-app.listen(PORT, function(err){
-    if (err) console.log("Error in server setup")
-    console.log("Server listening on Port", PORT);
-})
+// app.listen(PORT, function(err){
+//     if (err) console.log("Error in server setup")
+//     console.log("Server listening on Port", PORT);
+// })
 module.exports = app;

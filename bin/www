@@ -3,7 +3,7 @@
 /**
  * Module dependencies.
  */
-
+// import express, { json, urlencoded, static } from 'express';
 var app = require('../app');
 var debug = require('debug')('api:server');
 var http = require('http');
@@ -80,6 +80,10 @@ function onError(error) {
 /**
  * Event listener for HTTP server "listening" event.
  */
+// if (process.env.NODE_ENV == 'production')
+// {
+  // app.use(static('../client/build'));
+// }
 
 function onListening() {
   var addr = server.address();
