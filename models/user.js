@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
-import bcrypt from "bcrypt";
+var mongoose = require("mongoose");
+var bcrypt = require("bcrypt");
 const { Schema } = mongoose;
 
 const userSchema = new Schema(
@@ -69,4 +69,4 @@ userSchema.methods.comparePassword = function (password, next) {
   });
 };
 
-export default mongoose.model("User", userSchema);
+module.exports=mongoose.model("User", userSchema);

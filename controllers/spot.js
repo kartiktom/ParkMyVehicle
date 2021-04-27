@@ -1,7 +1,10 @@
-import Spot from "../models/parking";
-import fs from "fs";
+var Spot = require( "../models/parking");
+var fs = require("fs");
 
-export const create = async (req, res) => {
+// index.js
+
+"use strict";
+const create = async (req, res) => {
     // console.log("req.fields", req.fields);
   //   console.log("req.files", req.files);
   try {
@@ -31,7 +34,7 @@ export const create = async (req, res) => {
     });
   }
 };
-export const spots = async (req, res) => {
+const spots = async (req, res) => {
   let all = await Spot.find({})
     .select("-image.data")
     .populate("postedBy", "_id name")
@@ -40,7 +43,7 @@ export const spots = async (req, res) => {
   res.json(all);
 };
 
-export const sellerSpots = async (req, res) => {
+const sellerSpots = async (req, res) => {
   let all = await Spot.find({ postedBy: req.user._id })
     .select("-image.data")
   .populate("postedBy", "_id name")
@@ -49,7 +52,7 @@ export const sellerSpots = async (req, res) => {
     res.send(all);
 }
 
-export const image = async (req, res) => {
+const image = async (req, res) => {
   let spot = await Spot.findById(req.params.spotId).exec();
   if (spot && spot.image && spot.image.data !== null) {
     res.set("Content-Type", spot.image.contentType);
@@ -58,7 +61,7 @@ export const image = async (req, res) => {
 };
 
 
-export const searchListings = async (req, res) => {
+const searchListings = async (req, res) => {
   const { date} = req.body;
   // console.log(location, date, bed);
   console.log(date);
@@ -75,7 +78,7 @@ export const searchListings = async (req, res) => {
   res.json(result);
 };
 
-export const update = async (req, res) => {
+const update = async (req, res) => {
   // console.log("UPDATE FUNC++++");
   try {
   // console.log("HELLO___");
@@ -102,11 +105,7 @@ export const update = async (req, res) => {
   }
 };
 
-// export const userSpotBookings = async (req, res) => {
-//   const all = await Order.find({ orderedBy: req.user._id })
-//     .select("session")
-//     .populate("spot", "-image.data")
-//     .populate("orderedBy", "_id name")
-//     .exec();
-//   res.json(all);
-// };
+exports.create = create, exports.spots = spots, exports.sellerSpots = sellerSpots, exports.image = image, exports.searchListings = searchListings, exports.update = update;
+
+//# sourceMappingURL=index.js.map
+

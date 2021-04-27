@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+var mongoose =require("mongoose");
 
 const { Schema } = mongoose;
 const { ObjectId } = mongoose.Schema;
@@ -49,4 +49,4 @@ const spotSchema = new Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("Spot", spotSchema);
+module.exports = mongoose.model("Spot", spotSchema);

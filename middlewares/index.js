@@ -1,8 +1,9 @@
-import expressJwt from "express-jwt";
+var expressJwt =require("express-jwt");
 
 // req.user
-export const requireSignin = expressJwt({
+const requireSignin = expressJwt({
   // secret, expiryDate
   secret: process.env.JWT_SECRET,
   algorithms: ["HS256"],
 });
+exports.requireSignin = requireSignin;

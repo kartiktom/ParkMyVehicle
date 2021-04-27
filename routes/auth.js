@@ -1,9 +1,9 @@
-import express from "express";
+var express = require('express');
 
 const router = express.Router();
 
 // controllers
-import { register ,login} from "../controllers/auth";
+var { register ,login} =require("../controllers/auth");
 
 router.post("/register", register);
 router.post("/login", login);

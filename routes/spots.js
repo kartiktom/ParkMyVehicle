@@ -1,12 +1,12 @@
-import express from "express";
-import formidable from "express-formidable";
+var express = require("express");
+var formidable =require ("express-formidable");
 
 const router = express.Router();
 
 // middleware
-import { requireSignin } from "../middlewares";
+var { requireSignin } = require("../middlewares");
 // controllers
-import { create,spots ,sellerSpots,searchListings,image,update} from "../controllers/spot";
+var { create,spots ,sellerSpots,searchListings,image,update} =require("../controllers/spot");
 
 router.post("/create-spot",requireSignin, formidable(), create);
 router.get('/spots', spots);
