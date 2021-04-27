@@ -19,7 +19,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use('/', express.static(path.join(__dirname, '/client/build')));
 //DATABASE CONNECTION
 
 mongoose.connect(
@@ -28,13 +28,13 @@ mongoose.connect(
 
 fs.readdirSync('./routes').map((r) => app.use('/', require(`./routes/${r}`)))
 
-if (process.env.NODE_ENV === 'production')
-{
-  app.use(express.static('/client/build'));
-  //  app.get('*', (req, res) => {
-  //       res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')); // relative path
-  //   });
-}
+// if (process.env.NODE_ENV === 'production')
+// {
+//   app.use(express.static('/client/build'));
+//   //  app.get('*', (req, res) => {
+//   //       res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')); // relative path
+//   //   });
+// }
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
