@@ -1,4 +1,4 @@
-var createError = require('http-errors');
+// var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -31,15 +31,15 @@ fs.readdirSync('./routes').map((r) => app.use('/', require(`./routes/${r}`)))
 if (process.env.NODE_ENV === 'production')
 {
   app.use(express.static('./client/build'));
-   app.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')); // relative path
-    });
+  //  app.get('*', (req, res) => {
+  //       res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')); // relative path
+  //   });
 }
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
+// app.use(function(req, res, next) {
+//   next(createError(404));
+// });
 
 // error handler
 app.use(function(err, req, res, next) {
