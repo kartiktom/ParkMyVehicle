@@ -1,7 +1,10 @@
 {
   "name": "api",
-  "version": "0.0.0",
+  "version": "12.17.0",
   "private": true,
+  "engines": {
+    "npm": "7.7.6"
+  },
   "scripts": {
     "build": "cd client && npm run build",
     "install-client": "cd client && npm install",
