@@ -20,7 +20,10 @@ import {Button} from 'react-bootstrap'
 import { DatePicker, Select } from "antd";
 import moment from "moment";
 import { useHistory } from 'react-router-dom'
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import MapboxWorker from 'worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker';
 
+mapboxgl.workerClass = MapboxWorker;
 // mapboxgl.workerClass = MapboxWorker;
 mapboxgl.accessToken = 'pk.eyJ1Ijoic2Fpa2VzaGFyaSIsImEiOiJja2swdDYyanYwM3IwMm5xZjZlYm1kZmlsIn0.1ha1QjW98gYknER_3JqN6w';
 
